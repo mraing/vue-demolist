@@ -1,6 +1,6 @@
 # vue-内部指令
 
-> 学习 vue 内部指令
+> 学习 vue 内部指令 (未完待续)
 
 ## 运行项目
 
@@ -18,5 +18,7 @@ npm run build
 npm run build --report
 ```
 
-
+## 项目目录
++ v-if-else,v-show
++ v-show
 
