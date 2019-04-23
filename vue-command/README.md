@@ -1,10 +1,10 @@
-# vue-demo
+# vue-内部指令
 
->  学习 Vue 
+> 学习 vue 内部指令
 
-## Build Setup
+## 运行项目
 
-``` bash
+``` 
 # install dependencies
 npm install
 
@@ -18,4 +18,5 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
