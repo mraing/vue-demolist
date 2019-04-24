@@ -21,7 +21,5 @@ export default {
 </script>
 
 <style>
-	.child-box{
-		padding: 10px;
-	}
+	
 </style>
