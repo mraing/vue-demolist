@@ -4,7 +4,7 @@
 
 ## 运行项目
 
-``` 
+```node
 # install dependencies
 npm install
 

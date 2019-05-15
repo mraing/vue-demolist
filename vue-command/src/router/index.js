@@ -4,6 +4,7 @@ import Index from '@/components/index'
 import Vue01 from '@/components/childer/vue-01'
 import Vue02 from '@/components/childer/vue-02'
 import Vue03 from '@/components/childer/vue-03'
+import Vue04 from '@/components/childer/vue-04'
 
 
 Vue.use(Router)
@@ -14,12 +15,9 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: Index,
+			component: Index,
+			redirect:'/index/vue-01',
 			children:[
-				{
-					path: '/',
-					component: Vue01,
-				},
 				{
 					path: '/index/vue-01',
 					component: Vue01,
@@ -31,6 +29,10 @@ export default new Router({
 				{
 					path: '/index/vue-03',
 					component: Vue03,
+				},
+				{
+					path: '/index/vue-04',
+					component: Vue04,
 				}
 			]
     }
