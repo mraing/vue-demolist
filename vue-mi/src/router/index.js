@@ -28,16 +28,13 @@ export default new Router({
 			path: '/',
 			name: 'Index',
 			component: Index,
-			redirect:'/home',
+			redirect:'/home/recommend',
 			children: [
 				{
 					path: '/home',
 					name: 'Home',
 					component: Home,
 					children: [{
-						path: '/',
-						component: Recommend
-					},{
 						path: '/home/recommend',
 						name: 'Recommend',
 						component: Recommend
