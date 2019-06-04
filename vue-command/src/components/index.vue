@@ -8,6 +8,7 @@
 			<li class="items-link"><router-link to="/index/vue-03">v-text,v-html</router-link> </li>
 			<li class="items-link"><router-link to="/index/vue-04">v-on 绑定事件监听</router-link> </li>
 			<li class="items-link"><router-link to="/index/vue-05">v-model指令</router-link> </li>
+			<li class="items-link"><router-link to="/index/vue-06">v-bind指令</router-link> </li>
 		</ul>
 		<div class="items-details">
 			<router-view></router-view>

@@ -6,6 +6,7 @@ import Vue02 from '@/components/childer/vue-02'
 import Vue03 from '@/components/childer/vue-03'
 import Vue04 from '@/components/childer/vue-04'
 import Vue05 from '@/components/childer/vue-05'
+import Vue06 from '@/components/childer/vue-06'
 
 Vue.use(Router)
 
@@ -37,7 +38,11 @@ export default new Router({
 				{
 					path: '/index/vue-05',
 					component: Vue05,
-				}
+				},
+				{
+					path: '/index/vue-06',
+					component: Vue06,
+				},
 			]
     }
   ]
