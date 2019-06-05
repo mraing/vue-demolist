@@ -32,7 +32,7 @@ export default {
       red: "red",
       styleObject: {
         fontSize: "16px",
-        color: '#2196F3'  
+        color: '#2196F3'
       }
     };
   }

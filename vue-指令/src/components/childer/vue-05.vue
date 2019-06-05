@@ -11,7 +11,7 @@
     </ul>
 
     <div>
-      <input type="text" v-model="messages">
+      <input type="text" v-model.trim="messages">
     </div>
     <hr>
     <div>
