@@ -16,6 +16,7 @@
       <input type="checkbox" id="isOK" v-model="isOK">
       <label for="isOK">isOK = {{ isOK }}</label>
     </div>
+    <p>需要注意的是：绑定 class 要注意是 string 类型的，需要用引号括起来</p>
   </div>
 </template>
 
@@ -31,7 +32,7 @@ export default {
       red: "red",
       styleObject: {
         fontSize: "16px",
-        color: '#2196F3'
+        color: '#2196F3'  
       }
     };
   }

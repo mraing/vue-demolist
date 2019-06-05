@@ -9,6 +9,9 @@
 			<li class="items-link"><router-link to="/index/vue-04">v-on 绑定事件监听</router-link> </li>
 			<li class="items-link"><router-link to="/index/vue-05">v-model指令</router-link> </li>
 			<li class="items-link"><router-link to="/index/vue-06">v-bind指令</router-link> </li>
+			<li class="items-link"><router-link to="/index/vue-07">v-pre指令</router-link> </li>
+			<li class="items-link"><router-link to="/index/vue-08">v-cloak指令</router-link> </li>
+			<li class="items-link"><router-link to="/index/vue-09">v-once指令</router-link> </li>
 		</ul>
 		<div class="items-details">
 			<router-view></router-view>
