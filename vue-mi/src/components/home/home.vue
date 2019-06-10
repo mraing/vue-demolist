@@ -16,14 +16,14 @@
       <!-- 分类栏 -->
 
       <div class="home-category">
-        <router-link to="/home/recommend" class="home-category-items" exact>推荐</router-link>
-        <router-link to="/home/activity" class="home-category-items" exact>小米618</router-link>
-        <router-link to="/home/phone" class="home-category-items" exact>手机</router-link>
-        <router-link to="/home/intelligent" class="home-category-items" exact>智能</router-link>
-        <router-link to="/home/television" class="home-category-items" exact>电视</router-link>
-        <router-link to="/home/notebook" class="home-category-items" exact>笔记本</router-link>
-        <router-link to="/home/appliance" class="home-category-items" exact>家电</router-link>
-        <router-link to="/home/lifearound" class="home-category-items" exact>生活周边</router-link>
+        <router-link to="/home/recommend" class="home-category-items" event="click">推荐</router-link>
+        <router-link to="/home/activity" class="home-category-items" event="click">小米618</router-link>
+        <router-link to="/home/phone" class="home-category-items" event="click">手机</router-link>
+        <router-link to="/home/intelligent" class="home-category-items" event="click">智能</router-link>
+        <router-link to="/home/television" class="home-category-items" event="click">电视</router-link>
+        <router-link to="/home/notebook" class="home-category-items" event="click">笔记本</router-link>
+        <router-link to="/home/appliance" class="home-category-items" event="click">家电</router-link>
+        <router-link to="/home/lifearound" class="home-category-items" event="click">生活周边</router-link>
       </div>
     </header>
 
