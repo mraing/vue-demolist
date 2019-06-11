@@ -45,6 +45,7 @@ a {
   color: #42b983;
 }
 .navbar-left {
+  box-sizing: border-box;
   position: absolute;
   left: 0;
   top: 0;
@@ -65,6 +66,7 @@ a {
   position: absolute;
   right: 0;
   top: 0;
+  bottom: 0;
   width: 70%;
   overflow-x: hidden;
   overflow-y: auto;
