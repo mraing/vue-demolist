@@ -8,7 +8,7 @@ npm install
 npm run dev
 ```
 
-1.[单选框](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-radio.vue)
-2.[复选框](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-checklist.vue)
-3.[开关](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-switch.vue)
-4.[导航栏](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-tabbar.vue)
++ 1.[单选框](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-radio.vue)
++ 2.[复选框](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-checklist.vue)
++ 3.[开关](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-switch.vue)
++ 4.[导航栏](https://github.com/mraing/Vue/blob/master/vue-mint/src/components/mint-ui-tabbar.vue)
