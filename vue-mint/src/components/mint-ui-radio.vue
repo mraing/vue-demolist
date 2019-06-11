@@ -1,12 +1,11 @@
 <template>
-  <div id="hello">
+  <div id="radio">
     <mt-radio title="单选框按钮"  align="left" v-model="value" @change="check" :options="options"></mt-radio>  
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
   data() {
     return {
       value: "",
@@ -36,6 +35,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 
 </style>

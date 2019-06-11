@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
   data () {
     return {
       value: true
@@ -21,7 +20,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 h1, h2 {
   font-weight: normal;
 }
