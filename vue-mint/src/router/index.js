@@ -7,6 +7,11 @@ import Checklist from '@/components/mint-ui-checklist'
 import Tabbar from '@/components/mint-ui-tabbar'
 import Navbar from '@/components/mint-ui-navbar'
 import TabContainer from '@/components/mint-ui-tab-containe'
+import Header from '@/components/mint-ui-header'
+import Search from '@/components/mint-ui-search'
+import Cell from '@/components/mint-ui-cell'
+import CellSwipe from '@/components/mint-ui-cellSwipe'
+
 
 Vue.use(Router)
 
@@ -16,6 +21,7 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld,
+      redirect: '/switch',
       children:[{
         path:'/switch',
         component:Switch
@@ -34,6 +40,18 @@ export default new Router({
       },{
         path:'/tabContainer',
         component:TabContainer
+      },{
+        path:'/header',
+        component:Header
+      },{
+        path:'/search',
+        component:Search
+      },{
+        path:'/cell',
+        component:Cell
+      },{
+        path:'/cellSwipe',
+        component:CellSwipe
       }]
     }
   ]

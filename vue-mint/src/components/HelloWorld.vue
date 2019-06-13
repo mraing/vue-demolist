@@ -1,12 +1,16 @@
 <template>
   <div id="hello" class="hello">
     <div class="navbar-left">
-      <router-link to="/switch">开关</router-link>
+      <router-link to="/">开关</router-link>
       <router-link to="/radio">单选框</router-link>
       <router-link to="/checklist">复选框</router-link>
       <router-link to="/tabbar">选项卡</router-link>
       <router-link to="/navbar">导航条</router-link>
       <router-link to="/tabContainer">切换子页面面板</router-link>
+      <router-link to="/header">头部导航栏</router-link>
+      <router-link to="/search">搜索</router-link>
+      <router-link to="/cell">单元格</router-link>
+      <router-link to="/cellSwipe">单元格滑动</router-link>
     </div>
 
     <div class="view-right">
