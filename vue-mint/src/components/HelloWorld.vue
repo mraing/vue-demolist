@@ -11,6 +11,8 @@
       <router-link to="/search">搜索</router-link>
       <router-link to="/cell">单元格</router-link>
       <router-link to="/cellSwipe">单元格滑动</router-link>
+      <router-link to="/actionSheet">操作表</router-link>
+      <router-link to="/picker">选择器</router-link>
     </div>
 
     <div class="view-right">

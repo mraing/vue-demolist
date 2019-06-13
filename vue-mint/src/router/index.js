@@ -11,6 +11,8 @@ import Header from '@/components/mint-ui-header'
 import Search from '@/components/mint-ui-search'
 import Cell from '@/components/mint-ui-cell'
 import CellSwipe from '@/components/mint-ui-cellSwipe'
+import ActionSheet from '@/components/mint-ui-actionSheet'
+import Picker from '@/components/mint-ui-picker'
 
 
 Vue.use(Router)
@@ -52,6 +54,12 @@ export default new Router({
       },{
         path:'/cellSwipe',
         component:CellSwipe
+      },{
+        path:'/actionSheet',
+        component:ActionSheet
+      },{
+        path:'/picker',
+        component:Picker
       }]
     }
   ]
