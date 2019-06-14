@@ -14,8 +14,16 @@
         <div class="home-hedaer-user iconfont icon-wd"></div>
       </div>
       <!-- 分类栏 -->
+      <mt-navbar v-model="selected" class="home-category">
+        <mt-tab-item
+          v-for="tabBar in tableList"
+          :key="tabBar.id"
+          :id="tabBar.id"
+          class="home-category-items"
+        >{{tabBar.name}}</mt-tab-item>
+      </mt-navbar>
 
-      <div class="home-category">
+      <!-- <div class="home-category">
         <router-link to="/home/recommend" class="home-category-items" event="click">推荐</router-link>
         <router-link to="/home/activity" class="home-category-items" event="click">小米618</router-link>
         <router-link to="/home/phone" class="home-category-items" event="click">手机</router-link>
@@ -24,22 +32,101 @@
         <router-link to="/home/notebook" class="home-category-items" event="click">笔记本</router-link>
         <router-link to="/home/appliance" class="home-category-items" event="click">家电</router-link>
         <router-link to="/home/lifearound" class="home-category-items" event="click">生活周边</router-link>
-      </div>
+      </div>-->
     </header>
 
     <!-- 子页面切换 -->
     <div class="home-child-view">
-      <router-view keep-alive></router-view>
+      <!-- tab-container -->
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item v-for="(item,index) in tableList" :key="index" :id="item.id">
+          <div :is="item.component"></div>
+        </mt-tab-container-item>
+      </mt-tab-container>
+      <!-- <router-view keep-alive></router-view> -->
     </div>
   </div>
 </template>
 
 <script>
+import recommend from "./childer/recommend"; //推荐
+import activity from "./childer/activity"; //618活动
+import phone from "./childer/phone"; //手机
+import intelligent from "./childer/intelligent"; //智能
+import television from "./childer/television"; //电视
+import notebook from "./childer/notebook"; //笔记本
+import appliance from "./childer/appliance"; //家电
+import lifearound from "./childer/lifearound"; //生活周边
+
+
 export default {
   data() {
     return {
-      title: "Home"
+      components: "activity",
+      selected: "1",
+      title: "Home",
+      tableList: [
+        {
+          id: "1",
+          name: "推荐",
+          component: "recommend"
+        },
+        {
+          id: "2",
+          name: "小米618",
+          component: "activity"
+        },
+        {
+          id: "3",
+          name: "手机",
+          component: "phone"
+        },
+        {
+          id: "4",
+          name: "智能",
+          component: "intelligent"
+        },
+        {
+          id: "5",
+          name: "电视",
+          component: "television"
+        },
+        {
+          id: "6",
+          name: "笔记本",
+          component: "notebook"
+        },
+        {
+          id: "7",
+          name: "家电",
+          component: "appliance"
+        },
+        {
+          id: "8",
+          name: "生活周边",
+          component: "lifearound"
+        }
+      ]
     };
+  },
+  components: {
+    recommend,
+    activity,
+    phone,
+    intelligent,
+    television,
+    notebook,
+    appliance,
+    lifearound
+  },
+  methods: {
+    showItems(component, text) {
+      this.items = [];
+      this.items.push({
+        component: component,
+        text: text
+      });
+    }
   }
 };
 </script>
@@ -100,15 +187,19 @@ export default {
   overflow-y: hidden;
   overflow-x: auto;
 }
-.home-category-items {
+.home-category > .home-category-items {
   display: inline-block;
   margin: 0 5px;
+  margin-bottom: 0;
   padding: 0 5px;
   color: #999;
   line-height: 28px;
   font-size: 14px;
   border-bottom: 2px solid transparent;
   text-decoration: none;
+}
+.home-category-items > .mint-tab-item-label {
+  line-height: 28px;
 }
 .home-child-view {
   position: absolute;
@@ -120,8 +211,9 @@ export default {
   margin: 0 auto;
   overflow: auto;
 }
-.home-category > .router-link-active {
+.mint-navbar .mint-tab-item.is-selected {
   color: #ff6700;
   border-bottom: 2px solid #ff6700;
+  margin-bottom: 0;
 }
 </style>

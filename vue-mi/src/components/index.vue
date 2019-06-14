@@ -2,9 +2,9 @@
   <div id="index">
     <!-- 视图窗口 -->
     <div class="index-view">
-      
-        <router-view keep-alive></router-view>
-      
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
 
     <!-- 导航条 -->
