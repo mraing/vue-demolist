@@ -22,17 +22,6 @@
           class="home-category-items"
         >{{tabBar.name}}</mt-tab-item>
       </mt-navbar>
-
-      <!-- <div class="home-category">
-        <router-link to="/home/recommend" class="home-category-items" event="click">推荐</router-link>
-        <router-link to="/home/activity" class="home-category-items" event="click">小米618</router-link>
-        <router-link to="/home/phone" class="home-category-items" event="click">手机</router-link>
-        <router-link to="/home/intelligent" class="home-category-items" event="click">智能</router-link>
-        <router-link to="/home/television" class="home-category-items" event="click">电视</router-link>
-        <router-link to="/home/notebook" class="home-category-items" event="click">笔记本</router-link>
-        <router-link to="/home/appliance" class="home-category-items" event="click">家电</router-link>
-        <router-link to="/home/lifearound" class="home-category-items" event="click">生活周边</router-link>
-      </div>-->
     </header>
 
     <!-- 子页面切换 -->
@@ -43,7 +32,6 @@
           <div :is="item.component"></div>
         </mt-tab-container-item>
       </mt-tab-container>
-      <!-- <router-view keep-alive></router-view> -->
     </div>
   </div>
 </template>

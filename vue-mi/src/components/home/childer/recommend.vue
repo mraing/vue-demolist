@@ -49,11 +49,16 @@
       <img src="http://i8.mifile.cn/v1/a1/7ef7313d-dd33-716a-fda6-8cc9417a5210!720x440.webp" alt>
     </a>
 
+    <!-- 商品列表 -->
+    <goodsList></goodsList>
   </div>
 </template>
 
 <script>
 import { IcSlider, IcSliderItem } from "../../../common/vue-better-slider";
+
+import goodsList from '../../../common/goods-list'  //商品列表
+
 export default {
   data() {
     return {
@@ -144,7 +149,8 @@ export default {
   },
   components: {
     IcSlider,
-    IcSliderItem
+    IcSliderItem,
+    goodsList
   }
 };
 </script>

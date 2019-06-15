@@ -51,6 +51,7 @@ export default {
   font-size: 14px;
   background: #fff;
   border-top: 1px solid #eee;
+  box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.12);
   z-index: 999;
 }
 .index-view {
