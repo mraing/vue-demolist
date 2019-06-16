@@ -28,7 +28,7 @@ export default new Router({
 			path: '/',
 			name: 'Index',
 			component: Index,
-			redirect:'/home',
+			redirect: '/home',
 			children: [
 				{
 					path: '/home',
@@ -38,31 +38,31 @@ export default new Router({
 						path: '/home/recommend',
 						name: 'Recommend',
 						component: Recommend
-					},{
+					}, {
 						path: '/home/activity',
 						name: 'Activity',
 						component: Activity
-					},{
+					}, {
 						path: '/home/phone',
 						name: 'Phone',
 						component: Phone
-					},{
+					}, {
 						path: '/home/intelligent',
 						name: 'Intelligent',
 						component: Intelligent
-					},{
+					}, {
 						path: '/home/television',
 						name: 'Television',
 						component: Television
-					},{
+					}, {
 						path: '/home/notebook',
 						name: 'Notebook',
 						component: Notebook
-					},{
+					}, {
 						path: '/home/appliance',
 						name: 'Appliance',
 						component: Appliance
-					},{
+					}, {
 						path: '/home/lifearound',
 						name: 'Lifearound',
 						component: Lifearound
