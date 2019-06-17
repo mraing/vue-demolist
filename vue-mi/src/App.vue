@@ -22,6 +22,9 @@ html,body,ul,p,li,h1,h2,h3,h4,h5,h6,input,button{
 li{
   list-style: none;
 }
+a{
+  text-decoration: none;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -13,7 +13,7 @@
             <span class="goods-list-item-newprice">
               <i class="iconfont icon-qian"></i>{{item.price}}<span v-if="item.priceStarting">起</span>
             </span>
-            <span class="goods-list-item-oldprice">
+            <span class="goods-list-item-oldprice" v-if="item.priceOld">
               <s>
                 <i class="iconfont icon-qian"></i>{{item.priceOld}}
               </s>
@@ -151,8 +151,8 @@ export default {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 25%;
-  height: 25%;
+  width: 30%;
+  height: 30%;
   object-fit: cover;
   z-index: 5;
 }

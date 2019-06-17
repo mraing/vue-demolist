@@ -3,7 +3,7 @@
     <!-- 轮播图 -->
     <ic-slider :autoplay="3000">
       <ic-slider-item v-for="(items,index) in images" :key="index">
-        <a :href="items.linkUrl">
+        <a :to="items.linkUrl">
           <img :src="items.picUrl">
         </a>
       </ic-slider-item>
@@ -12,7 +12,7 @@
     <!-- 快捷导航 -->
     <ul class="common-model-list">
       <li class="common-model-items" v-for="(commonMdeol,index) in commonModels" :key="index">
-        <a class="common-model-link" :href="commonMdeol.linkUrl">
+        <a class="common-model-link" :to="commonMdeol.linkUrl">
           <img :src="commonMdeol.imgUrl" :alt="commonMdeol.commonName">
         </a>
       </li>
@@ -50,14 +50,14 @@
     </a>
 
     <!-- 商品列表 -->
-    <goodsList></goodsList>
+    <goods-list></goods-list>
   </div>
 </template>
 
 <script>
-import { IcSlider, IcSliderItem } from "../../../common/vue-better-slider";
+import { IcSlider, IcSliderItem } from "@/common/vue-better-slider";
 
-import goodsList from '../../../common/goods-list'  //商品列表
+import goodsList from '@/common/goods-list'
 
 export default {
   data() {
