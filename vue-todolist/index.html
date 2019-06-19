@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="search" v-model="value" />
+      <button @click="addList">提交</button>
+
+      <ul>
+        <!-- <li v-for="(item,index) in list" :key="index">{{ item }}</li> -->
+        <todo-item
+          v-for="(item,index) in list"
+          :key="index"
+          :content="item" :index="index" @delete="handleItemsDelete"
+        ></todo-item>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var todoItem = {
+        props: ["content","index"],
+        template: "<li @click='handleItems'> {{content}} </li>",
+        methods:{
+          handleItems(){
+            this.$emit('delete',this.index);
+          }
+        }
+      };
+      var app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            value: "",
+            list: []
+          };
+        },
+        methods: {
+          addList() {
+            this.list.push(this.value);
+            this.value = "";
+          },
+          handleItemsDelete(index){
+            this.list.splice(index,1);
+          }
+        },
+        components: {
+          todoItem
+        },
+        
+      });
+    </script>
+  </body>
+</html>
