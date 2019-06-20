@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>渲染列表</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div v-for="(item,key,index) in list">{{ key }} : {{ item }}</div>
+
+      <button type="button" @click="handleList">Add</button>
+
+      <div v-for="(item,index) in listNumber">{{ item }}</div>
+
+      <button @click="handleChangeNumber">更改某条数据</button>
+
+      <button @click="handleAddeNumber">往末尾新增数据</button>
+
+      <button @click="handleDelNumber">删除末尾数据</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          list: {
+            userName: "mraing",
+            age: "23",
+            motto: "路漫漫其修远兮，吾将上下而求索"
+          },
+          listNumber: [1, 2, 3, 4, 5]
+        },
+        methods: {
+          handleList() {
+            Vue.set(vm.list, "address", "BeiJing");
+          },
+          handleChangeNumber() {
+            vm.$set(this.listNumber, 2, 999);
+          },
+          handleAddeNumber() {
+            this.listNumber.push(6);
+          },
+          handleDelNumber() {
+            this.listNumber.pop();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
