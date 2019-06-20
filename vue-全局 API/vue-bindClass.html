@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>绑定 Class</title>
+    <style>
+      .activated {
+        padding: 2px 10px;
+        background: red;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <span @click="handleDom" :class="{ activated : isActivated }">绑定 class</span>
+
+      <span @click="handleDom2" :class="[activated2]">绑定 class</span>
+
+      <span :style="[styleObj,{fontSize:'24px'}]" @click="handleDom3">绑定 style</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          isActivated: false,
+          activated2: "",
+          styleObj:{
+              color:"black"
+          }
+        },
+        methods: {
+          handleDom: function() {
+            this.isActivated = !this.isActivated;
+          },
+          handleDom2() {
+            this.activated2 =   this.activated2== "activated"? "" : "activated";
+          },
+          handleDom3() {
+            this.styleObj.color = this.styleObj.color == "black"? "red" : "black";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

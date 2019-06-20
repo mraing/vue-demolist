@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>计算属性</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- 计算属性 -->
+            <div>计算属性 computed :有缓存的机制，如果依赖的值没有变化，是不会进行改变的，这样做的好处是减少性能的损耗</div>
+            <div>计算属性 : {{fullName}} {{age}}</div>
+            <hr>
+            <!-- 方法属性 -->
+            <div>通过方式去实现的数据更改，改变数据会重新加载一次 DOM</div>
+            <div>方法 : {{ fullNameFuc() }} {{age}}</div>
+            <hr>
+            <!-- 监听 -->
+            <div>监听 : {{ fullName2 }} {{age}}</div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                data: {
+                    firstName: "Lee",
+                    lastName: "Geing",
+                    fullName2: "LeeGeing",
+                    age: 23
+                },
+                //计算属性
+                computed: {
+                    fullName:function() {
+                        console.log("computed 执行了一次");
+                        return this.firstName + this.lastName;
+                    }
+                },
+                //方法
+                methods: {
+                    fullNameFuc:function() {
+                        console.log("methods 执行了一次");
+                        return this.firstName + this.lastName;
+                    }
+                },
+
+                //监听
+                watch: {
+                    //监听firstName
+                    firstName:function(){
+                        console.log("监听firstName 执行了一次");
+                        this.fullName2 = this.firstName + this.lastName;
+                    },
+                    //监听lastName
+                    lastName:function(){
+                        console.log("监听lastName 执行了一次");
+                        this.fullName2 = this.firstName + this.lastName;
+                    }
+                }
+
+            });
+        </script>
+    </body>
+
+</html>
