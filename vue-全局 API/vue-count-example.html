@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Count 例子</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>点击Number</div>
+      <div><my-number ref="one" @change="handleChange"></my-number></div>
+      <div><my-number ref="two" @change="handleChange"></my-number></div>
+      <div>总和：{{ total }}</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+
+      //注册全局组件
+      Vue.component("my-number",{
+        "template": "<div @click='handleNumber'>Number: {{ number }}</div>",
+        data(){
+          return {
+            number: 0
+          }
+        },
+        methods:{
+          handleNumber() {
+            this.number++;
+            this.$emit('change');
+          }
+        }
+      });
+
+      //实例化Vue
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          total: 0
+        },
+        methods:{
+          handleChange: function() {
+            this.total = this.$refs.one.number + this.$refs.two.number;
+            console.log( this.$refs.one.number );
+            console.log( this.$refs.two.number );
+          }
+        }
+      });
+
+      
+    </script>
+  </body>
+</html>
