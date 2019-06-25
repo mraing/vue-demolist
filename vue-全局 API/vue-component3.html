@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>非父子组件之间的传值</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>父子组件通讯：Bus/总线/发布订阅模式/观察者模式</div>
+      <child content="LEE"></child>
+      <child content="DELL"></child>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      //在 vue 的prototype上挂载了一个 bus 的属性，这样做的目的就是让所有的 Vue 实例都带有这个属性
+      Vue.prototype.bus = new Vue();
+
+      Vue.component("child", {
+        props: {
+          content: String
+        },
+        data() {
+          return{
+            selfContent: this.content
+          }
+        },
+        template: '<div @click="handleClick">{{selfContent}}</div>',
+        methods: {
+          handleClick() {
+            // console.log(this.content);
+            console.log("触发 methods");
+            this.bus.$emit("change", this.selfContent);
+            //this.bus 指的是挂载在 Vue 上的一个属性，每个实例上都有会 bus 这个属性，bus 又是 Vue 的实例，所以bus 上也会有 $emit 这个方法，我们就可以通过这个方法向外触发事件
+          }
+        },
+        //生命周期-被挂载时执行这个函数
+        mounted:function() {
+          var _this = this;
+          this.bus.$on("change", function(msg) {
+            console.log(msg+'被挂载时执行这个函数');
+            _this.selfContent = msg;
+          });
+        }
+      });
+
+      //实例化Vue
+      var vm = new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>
