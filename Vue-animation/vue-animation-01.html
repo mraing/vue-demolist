@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue中动画原理</title>
+    <style>
+        /* 隐藏 */
+        .fade-enter{
+            opacity: 0;
+        }
+        .fade-enter-active{
+            transition: opacity 1s;
+        }
+        /* 显示 */
+        .fade-leave-to{
+            opacity: 0;
+        }
+        .fade-leave-active{
+            transition: opacity 1s;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="handleClick">click me</button>
+
+      <transition name="fade">
+        <div v-if="isShow" class="my-animation">hello world</div>
+      </transition>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            isShow: true
+          };
+        },
+        methods: {
+          handleClick() {
+            this.isShow = !this.isShow;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
