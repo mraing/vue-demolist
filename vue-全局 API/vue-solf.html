@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue插槽</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <child>
+        <template v-slot:head="{ msg }">
+          <p>new: i'm new slot -  {{ msg }}</p>
+        </template>
+        <div class="header" slot="header">header</div>
+        <div class="footer" slot="footer">footer</div>
+        
+      </child>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      Vue.component("child", {
+        data(){
+          return{
+            items:[1,2,3,4]
+          }
+        },
+        template: `<div> 
+                    <slot name="head" v-for="item in items" :msg=item ></slot>
+                    <slot name="header"></slot>
+                    <p>Hello</p> 
+                    <slot name="footer"></slot>
+                   </div>`
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          // msg: 'NOTHING'
+        }
+      });
+    </script>
+  </body>
+</html>
