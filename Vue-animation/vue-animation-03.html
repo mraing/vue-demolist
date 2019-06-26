@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+     <!-- 引入 Animate.css -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <title>Vue中同时使用过渡和动画</title>
+    <style>
+       .fade-enter,.fade-leave-to{
+          opacity: 0;
+       }
+       .fade-enter-active,.fade-leave-active{
+         transition: opacity 5s;
+       }
+        
+    </style>
+  </head> 
+  <body>
+    <div id="app">
+      <button @click="handleClick">click me</button>
+
+      <!-- :duration="5000"    入场 5s.出场 10s --> 
+      <transition 
+        :duration="{enter:5000,leave:10000}"
+        type="transition"
+        name="fade"
+        appear
+        enter-active-class="animated swing fade-enter-active"
+        leave-active-class="animated shake fade-enter-active"
+        appear-active-class="animated swing"
+      >
+        <div v-if="isShow">Vue中同时使用过渡和动画</div>
+      </transition>
+     
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            isShow: true
+          };
+        },
+        methods: {
+          handleClick() {
+            this.isShow = !this.isShow;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

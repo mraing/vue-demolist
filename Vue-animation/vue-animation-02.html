@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+     <!-- 引入 Animate.css -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <title>Vue中Animate库的使用</title>
+    <style>
+       
+        
+    </style>
+  </head> 
+  <body>
+    <div id="app">
+      <button @click="handleClick">click me</button>
+       
+      <!-- 默认会生成 name-enter-active -->
+      <transition 
+        enter-active-class="animated swing"
+        leave-active-class="animated shake"
+      >
+        <div v-if="isShow" class="my-animation" >hello world</div>
+      </transition>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            isShow: true
+          };
+        },
+        methods: {
+          handleClick() {
+            this.isShow = !this.isShow;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
