@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-     <!-- 引入 Animate.css -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <title>Vue中JS动画与velocity的结合</title>
-    <style>
-       .fade-enter,.fade-leave-to{
-          opacity: 0;
-       }
-       .fade-enter-active,.fade-leave-active{
-         transition: opacity 5s;
-       }
-        
-    </style>
-  </head> 
+    <style></style>
+  </head>
+
   <body>
     <div id="app">
-     <div v-if="isShow">hello world</div>
-     <button @click="handleClick">click me</button>
+      <transition
+        name="fade"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+      >
+        <div v-if="isShow">hello world</div>
+      </transition>
+      <button @click="handleClick">click me</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script>
     <script>
       var vm = new Vue({
         el: "#app",
@@ -36,6 +38,23 @@
         methods: {
           handleClick() {
             this.isShow = !this.isShow;
+          },
+          beforeEnter(el) {
+            // el.style.color = "red";
+            el.style.opacity = 0;
+          },
+          enter(el, done) {
+            Velocity(el, { opacity: 1 }, { 
+              duration: 1000,
+              complete: done
+            });
+            //done(); 动画结束回调 done()
+            // setTimeout(function() {
+            //   el.style.fontSize = "28px";
+            // }, 2000);
+          },
+          afterEnter(el) {
+            console.log("动画结束");
           }
         }
       });
