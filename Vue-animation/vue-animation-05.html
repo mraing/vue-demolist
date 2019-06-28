@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Vue中多个元素或组件的过渡</title>
+    <style>
+      .fade-enter,
+      .fade-leave-to {
+        opacity: 0;
+      }
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="handleClick">click me</button>
+
+      <!-- 添加 key 值，防止复用 DOM 结 构 -->
+      <!-- out-in: 先隐藏再显示/  in-out: 先显示再隐藏 -->
+      <transition name="fade" mode="out-in">
+        <div v-if="isShow" key="hello">Hello World</div>
+        <div v-else key="bey">Bye World</div>
+      </transition>
+
+      <!-- 组件 -->
+      <p>组件</p>
+      <transition name="fade" mode="out-in">
+        <child v-if="isShow"></child>
+        <child-one v-else></child-one>
+      </transition>
+
+      <!-- 动态组件 -->
+      <div>
+        <p>动态组件</p>
+        <transition name="fade" mode="out-in">
+          <component :is="childer"></component>
+        </transition>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script> -->
+    <script>
+      Vue.component("child", {
+        template: `<div>Child</div>`
+      });
+
+      Vue.component("child-one", {
+        template: `<div>child-One</div>`
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            isShow: true,
+            childer: "child"
+          };
+        },
+        methods: {
+          handleClick() {
+            this.isShow = !this.isShow;
+            this.childer = this.childer === "child" ? "child-one" : "child";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
