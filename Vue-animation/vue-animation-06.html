@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Vue中的列表过渡</title>
+    <style>
+      .v-enter, .v-leave-to{
+        opacity: 0;
+      }
+
+      .v-enter-active, .v-leave-active{
+        transition: opacity 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="handleClick">Add</button>
+      <ul>
+
+        <transition-group>
+          <li v-for="(item,index) in list" :key="item.count">
+            {{ item.title }} - {{ item.count }}
+          </li>
+        </transition-group>
+
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script> -->
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            count: 0,
+            list: []
+          };
+        },
+        methods: {
+          handleClick() {
+            this.list.push({
+              count: this.count++,
+              title: "hello world"
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
