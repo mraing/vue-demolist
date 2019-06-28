@@ -34,15 +34,6 @@
     </div>
 
     <!-- 操作列表 -->
-    <!-- <div class="user-option-list">
-      <a class="user-option-items">
-        <div class="user-option-items-left"  style="background:url('https://m.mi.com/static/img/i-setting.fb9625b3f2.png') 12.5px 50% / 25px no-repeat">会员中心</div>
-        <div class="user-option-items-right">
-          <i class="iconfont icon-iconRight"></i>
-        </div>
-      </a>
-    </div> -->
-
     <div class="user-option-list" v-for="(item,index) in optionList" :key="index">
       <a class="user-option-items" v-for="(citem,index) in item" :key="index">
         <div class="user-option-items-left" :style="{background: 'url(' + citem.iconImg + ') 12.5px 50% / 25px no-repeat'}">{{citem.title}}</div>
