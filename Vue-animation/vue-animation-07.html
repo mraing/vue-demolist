@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Vue中的动画封装</title>
+    <style>
+      .v-enter, .v-leave-to{
+        opacity: 0;
+      }
+
+      .v-enter-active, .v-leave-active{
+        transition: opacity 1s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="handleClick">Click</button>
+
+      <transition>
+        <div v-if="isShow">Hello World</div>
+      </transition>
+
+
+      <!-- 组件封装 -->
+      <p>组件封装</p>
+      <fade :show="isShow">
+          <div v-if="isShow">组件封装fade</div>
+      </fade>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script> -->
+    <script>
+
+      Vue.component("fade",{
+
+        props:["show"],
+        template: `<transition 
+                    @before-enter="beforeEnter"
+                    @enter="enter"
+                  >
+                   <slot v-show="show"></solt>
+                  </transition>`,
+
+        methods:{
+          beforeEnter(el){
+           el.style.opacity = 0;
+          },
+          enter(el,done){
+            el.style.transition = "opacity 1s";
+            setTimeout(function(){
+              done();
+            },1000)
+          }
+
+        }
+
+      })
+
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            isShow: true
+          };
+        },
+        methods: {
+          handleClick() {
+            this.isShow = !this.isShow;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
