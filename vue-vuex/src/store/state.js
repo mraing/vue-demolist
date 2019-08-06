@@ -31,10 +31,10 @@ const getters = {
 // actions和之前讲的Mutations功能基本一样，不同点是，actions是异步的改变state状态，而Mutations是同步改变状态。
 const actions = {
   // 上下文对象，这里你可以理解称store本身
-  addAction (context) {
+  addAction (context, n) {
     console.log('我比reduce提前执行')
     setTimeout(() => {
-      context.commit('reduce', 10)
+      context.commit('reduce', n)
     }, 3000)
     // context.commit('add', 10)
   },
