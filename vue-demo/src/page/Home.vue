@@ -1,7 +1,8 @@
 <template>
  <div>
     <h1>{{title}}</h1>
-    <router-link to="handleLight">控制灯</router-link>
+    <router-link to="/handleLight">控制灯</router-link>
+    <router-link to="/handleList">增加列表</router-link>
     <div class="view-wrapper">
       <router-view/>
     </div>
@@ -10,7 +11,7 @@
 
 <script>
 export default {
-  name: 'HandleLight',
+  name: 'Home',
   data () {
     return {
       title: 'Vue demo 集合'
