@@ -25,7 +25,12 @@ export default {
     return {
       title: '演示',
       msg: '',
-      list: []
+      list: ['123', '123', '123'],
+
+      ListObj: {
+        '123': '123'
+      }
+      
     }
   },
   methods: {
