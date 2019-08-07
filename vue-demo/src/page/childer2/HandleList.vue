@@ -30,7 +30,6 @@ export default {
       ListObj: {
         '123': '123'
       }
-      
     }
   },
   methods: {
