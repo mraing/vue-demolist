@@ -3,10 +3,10 @@
     <h5>{{title}}</h5>
     <ul class="list-wrapper">
       <li class="defult-list"
-        v-for="(item, index) in 10"
+        v-for="(item, index) in list"
         :key="index+item"
-        @click="handleList(item)"
-        :class="{'list-active' : highlight == item}"
+        @click="handleList(item+index)"
+        :class="{'list-active' : highlight == item+index}"
       >
         {{item}}
       </li>
@@ -20,12 +20,14 @@ export default {
   data () {
     return {
       title: '演示',
-      highlight: ''
+      highlight: '',
+      list: ['qq', 'qq', 'cc', 'aa']
     }
   },
   methods: {
-    handleList (item) {
-      this.highlight = item
+    handleList (parameter) {
+      this.highlight = parameter
+      console.log(parameter)
     }
   }
 }
