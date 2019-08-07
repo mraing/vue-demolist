@@ -5,8 +5,8 @@
       <li class="defult-list"
         v-for="(item, index) in list"
         :key="index+item"
-        @click="handleList(item+index)"
-        :class="{'list-active' : highlight == item+index}"
+        @click="handleList(index)"
+        :class="{'list-active' : highlight == index}"
       >
         {{item}}
       </li>

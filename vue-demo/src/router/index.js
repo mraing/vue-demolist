@@ -4,6 +4,7 @@ import Home from '@/page/Home'
 import HandleLight from '@/page/childer1/HandleLight'
 import HandleList from '@/page/childer2/HandleList'
 import HandleIncident from '@/page/childer3/HandleIncident'
+import SwiperDome from '@/page/childer4/SwiperDome'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
         path: '/handleIncident',
         name: 'HandleIncident',
         component: HandleIncident
+      }, {
+        path: '/swiperdome',
+        name: 'SwiperDome',
+        component: SwiperDome
       }]
     }
   ]

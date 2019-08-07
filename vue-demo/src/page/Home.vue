@@ -4,6 +4,7 @@
     <router-link to="/handleLight">控制灯</router-link>
     <router-link to="/handleList">增加列表</router-link>
     <router-link to="/handleIncident">高亮列表</router-link>
+    <router-link to="/swiperdome">轮播图</router-link>
     <div class="view-wrapper">
       <router-view/>
     </div>
