@@ -1,8 +1,8 @@
 <template>
   <div>
     <h5>{{title}}</h5>
-    <!-- 轮播图 -->
-    <div ontouchstart>
+    <!-- 轮播图 ontouchstart-->
+    <div>
       <!-- 引入轮播组件 -->
       <swiper :options="swiperOption">
         <!-- 循环图片地址 -->
@@ -21,8 +21,8 @@
 
 <script>
 // 局部引入 或者 全局引入 都是可以的
-import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+// import 'swiper/dist/css/swiper.css'
+// import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
   name: 'SwiperDome',
@@ -42,12 +42,12 @@ export default {
         'https://i1.mifile.cn/a4/xmad_15649872937069_sqeMx.jpg'
       ]
     }
-  },
-  // 注册组件 就是刚刚上面引入的那俩货
-  components: {
-    swiper,
-    swiperSlide
   }
+  // 注册组件 就是刚刚上面引入的那俩货
+  // components: {
+  //   swiper,
+  //   swiperSlide
+  // }
 }
 </script>
 
