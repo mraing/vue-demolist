@@ -2,38 +2,37 @@
   <div>
     <h5>{{title}}</h5>
     <!-- 轮播图 ontouchstart-->
-    <div>
-      <!-- 引入轮播组件 -->
-      <swiper :options="swiperOption">
-        <!-- 循环图片地址 -->
-        <swiper-slide
-          v-for="(item, index) in imgList"
-          :key="index"
-        >
-          <!-- 动态绑定图片地址 -->
-          <img class="img-item" :src="item">
-        </swiper-slide>
-        <div class="swiper-pagination"></div>
-      </swiper>
-    </div>
+    <swiper :options="swiperOption" v-if="isShow">
+      <!-- 轮播图片 -->
+      <swiper-slide v-for="(items, index) in imgList" :key="index+'a'">
+        <img class="img-item" :src="items" />
+      </swiper-slide>
+      <!-- 分页器 -->
+      <div class="swiper-pagination"  slot="pagination"></div>
+      <!-- 前进后退 -->
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
+
   </div>
 </template>
 
 <script>
-// 局部引入 或者 全局引入 都是可以的
-// import 'swiper/dist/css/swiper.css'
-// import { swiper, swiperSlide } from 'vue-awesome-swiper'
-
 export default {
   name: 'SwiperDome',
   data () {
     return {
       title: '演示',
       swiperOption: {
-        loop: true,
         pagination: {
           el: '.swiper-pagination'
-        }
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        loop: true,
+        effect: 'cube'
       },
       // 图片列表 我从小米官网抠的链接地址
       imgList: [
@@ -42,23 +41,19 @@ export default {
         'https://i1.mifile.cn/a4/xmad_15649872937069_sqeMx.jpg'
       ]
     }
+  },
+  computed: {
+    isShow () {
+      return this.imgList.length
+    }
   }
-  // 注册组件 就是刚刚上面引入的那俩货
-  // components: {
-  //   swiper,
-  //   swiperSlide
-  // }
 }
 </script>
 
 <style scoped>
-/*
-图片样式
-稍微调整了下，不然图片显示不好看
-*/
+
 .img-item{
   width: 100%;
-  /* height: 300px; */
-  object-fit: cover;
 }
+
 </style>
